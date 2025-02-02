@@ -1,0 +1,36 @@
+from datetime import datetime
+import calendar
+
+def calendario():
+    year = str(datetime.now().year)
+    with open("calendar.html", "w", encoding="utf-8") as file:
+        file.write("<!DOCTYPE html>\n")
+        file.write("<html lang='es'>\n")
+        file.write("<head>\n")
+        file.write("<meta charset='UTF-8'>\n")
+        file.write("<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n")
+        file.write("<title>Calendario " + year + "</title>\n")
+        file.write("<link rel='stylesheet' href='./style.css'>\n")
+        file.write("</head>\n")
+        file.write("<body>\n")
+        file.write("<span><h1>Calendario " + year + "</h1></span>\n")
+        for m in range(1, 13, 1):
+            file.write("<div class='month'><h2>" + calendar.month_name[m] + "</h2>\n")
+            file.write("<table>\n")
+            file.write("<thead><tr><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th></tr></thead><tbody>\n")
+            cal = calendar.monthcalendar(2025, m)
+            if len(cal) < 6:
+                cal.append([0]*7)
+            for w in cal:
+                file.write("<tr>\n")
+                for d in w:
+                    file.write(f"<td>{d if d != 0 else ''}</td>\n")
+                file.write("</tr>\n")
+            file.write("</tbody></table></div>\n")
+        file.write("</body>\n")
+        file.write("</html>\n")
+        file.close()
+    print("El calendario para " + year + " ha sido generado y guardado como 'calendar.html'.")
+
+if __name__ == "__main__":
+    calendario()
