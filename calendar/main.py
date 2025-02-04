@@ -10,7 +10,7 @@ def calendario():
         file.write("<meta charset='UTF-8'>\n")
         file.write("<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n")
         file.write("<title>Calendario " + year + "</title>\n")
-        file.write("<link rel='stylesheet' href='./style.css'>\n")
+        file.write("<link rel='stylesheet' href='./styles/style.css'>\n")
         file.write("</head>\n")
         file.write("<body>\n")
         file.write("<span><h1>Calendario " + year + "</h1></span>\n")
