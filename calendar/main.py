@@ -20,7 +20,6 @@ festivosVariables   = [[6, 1],
                        [3, 11],
                        [17, 11]]      #[DD, MM] 2025
 
-
 festivos_2025   = festivosFijos +  festivosVariables
 
 def calendario():
@@ -46,7 +45,10 @@ def calendario():
             for w in cal:
                 file.write("<tr>\n")
                 for d in w:
-                    file.write(f"<td>{d if d != 0 else ''}</td>\n")
+                    if [d, m] in festivos_2025:
+                        file.write(f"<td class='free'>{d if d != 0 else ''}</td>\n")
+                    else:
+                        file.write(f"<td>{d if d != 0 else ''}</td>\n")
                 file.write("</tr>\n")
             file.write("</tbody></table></div>\n")
         file.write("</body>\n")
