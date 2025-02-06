@@ -1,6 +1,28 @@
 from datetime import datetime
 import calendar
 
+festivosFijos   = [[1, 1],
+                   [1, 5],
+                   [20, 7],
+                   [7, 8],
+                   [8, 12],
+                   [25, 12]]    #[DD, MM]
+
+festivosVariables   = [[6, 1],
+                       [24, 3],
+                       [17, 4],
+                       [18, 4],
+                       [2, 6],
+                       [23, 6],
+                       [30, 6],
+                       [18, 7],
+                       [13, 10],
+                       [3, 11],
+                       [17, 11]]      #[DD, MM] 2025
+
+
+festivos_2025   = festivosFijos +  festivosVariables
+
 def calendario():
     year = str(datetime.now().year)
     with open("calendar.html", "w", encoding="utf-8") as file:
